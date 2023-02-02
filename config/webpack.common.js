@@ -18,6 +18,15 @@ module.exports = {
       '@': path.resolve(__dirname, '../src'),
     },
   },
+  module: {
+    rules: [
+      {
+        test: /\.(ts|js)x?$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      },
+    ]
+  },
   plugins: [
     new HtmlWebpackPlugin({
       // html模板

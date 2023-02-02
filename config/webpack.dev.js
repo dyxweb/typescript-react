@@ -1,6 +1,6 @@
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 module.exports = {
   mode: 'development',
-  devtool: 'cheap-module-source-map',
   devServer: {
     hot: true,
     open: true,
@@ -16,4 +16,8 @@ module.exports = {
       },
     }
   },
+  plugins: [
+    // 状态重置问题（更改相关代码保存后，state状态会重置）
+    new ReactRefreshWebpackPlugin()
+  ]
 }

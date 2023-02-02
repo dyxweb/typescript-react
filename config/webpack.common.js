@@ -10,6 +10,14 @@ module.exports = {
     // 每一次打包清除上一次打包内容
     clean: true,
   },
+  resolve: {
+    // 默认是 .js 和 .json。以下配置解决ts文件无法被引用解析的问题
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+    // 配置路径别名
+    alias: {
+      '@': path.resolve(__dirname, '../src'),
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       // html模板

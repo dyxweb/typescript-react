@@ -1,0 +1,16 @@
+{
+  "name": "typescript-react",
+  "version": "1.0.0",
+  "description": "webpack5搭建基于typescript的react项目",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack",
+    "typescript",
+    "resct"
+  ],
+  "author": "dyxweb",
+  "license": "ISC"
+}

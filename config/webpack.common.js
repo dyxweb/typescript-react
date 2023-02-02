@@ -1,4 +1,5 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, '../src/index.tsx'),
@@ -9,4 +10,12 @@ module.exports = {
     // 每一次打包清除上一次打包内容
     clean: true,
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      // html模板
+      template: path.resolve(__dirname, '../public/index.html'),
+      // 页签icon
+      favicon: path.resolve(__dirname, '../public/logo.png')
+    }),
+  ]
 }

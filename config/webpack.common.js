@@ -18,6 +18,9 @@ module.exports = {
   resolve: {
     // 默认是.js和.json。以下配置解决ts文件无法被引用解析的问题
     extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+    alias: {
+      '@': path.resolve(__dirname, '../src')
+    }
   },
   cache: {
     type: 'filesystem', // 使用文件缓存

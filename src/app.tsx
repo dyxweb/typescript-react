@@ -1,6 +1,6 @@
 import React from 'react';
-import smallImg from './assets/4kb.png';
-import bigImg from './assets/20kb.png';
+import smallImg from '@/assets/4kb.png';
+import bigImg from '@/assets/20kb.png';
 import styles from './app.scss';
 
 const App = () => (

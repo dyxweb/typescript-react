@@ -1,8 +1,7 @@
 {
   "name": "typescript-react",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "webpack5搭建react+ts项目",
   "scripts": {
     "start": "cross-env NODE_ENV=development BASE_ENV=development webpack-dev-server --config config/webpack.dev.js",
     "start:test": "cross-env NODE_ENV=development BASE_ENV=test webpack-dev-server --config config/webpack.dev.js",
@@ -10,9 +9,8 @@
     "build:test": "cross-env NODE_ENV=production BASE_ENV=test webpack --config config/webpack.prod.js",
     "analysis": "cross-env NODE_ENV=production BASE_ENV=development webpack --config config/webpack.analysis.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["webpack", "react", "typescript"],
+  "author": "dyxweb",
   "dependencies": {
     "@babel/runtime": "^7.22.15",
     "core-js": "^3.32.2",

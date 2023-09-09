@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const commonConfig = require('./webpack.common.js');
 
 module.exports = merge(commonConfig, {
@@ -8,6 +9,14 @@ module.exports = merge(commonConfig, {
   optimization: {
     minimizer: [
       new CssMinimizerWebpackPlugin(), // 压缩css
+      new TerserPlugin({ // 压缩js
+        parallel: true, // 开启多线程压缩
+        terserOptions: {
+          compress: {
+            pure_funcs: ["console.log"] // 删除console.log
+          }
+        }
+      }),
     ],
     splitChunks: { // 代码分割
       cacheGroups: {

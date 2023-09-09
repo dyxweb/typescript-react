@@ -18,7 +18,11 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|js)x?$/,
-        use: 'babel-loader'
+        use: 'babel-loader',
+        exclude: [
+          /\bcore-js\b/,
+          /\bwebpack\/buildin\b/
+        ],
       }
     ]
   }

@@ -1,4 +1,6 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 module.exports = {
   // 入口文件
@@ -25,5 +27,11 @@ module.exports = {
         ],
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      // html模板
+      template: path.resolve(__dirname, '../public/index.html'),
+    }),
+  ]
 }

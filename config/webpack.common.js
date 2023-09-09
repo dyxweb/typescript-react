@@ -1,6 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const isDev = process.env.NODE_ENV === 'development'; // 是否是开发模式
 
 module.exports = {
   // 入口文件
@@ -28,12 +31,16 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader']
+        use: [
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader, // 开发环境使用style-loader，打包模式抽离css
+          'css-loader', 
+          'postcss-loader'
+        ]
       },
       {
         test: /.(scss|sass)$/,
         use: [
-          'style-loader',
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader, // 开发环境使用style-loader，打包模式抽离css
           {
             loader: require.resolve('css-loader'),
             // 开启css module

@@ -30,6 +30,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.8.1",
     "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
     "postcss": "^8.4.29",
     "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^9.1.3",

@@ -1,3 +1,5 @@
+const isDEV = process.env.NODE_ENV === 'development'; // 是否是开发模式
+
 module.exports = {
   sourceType: "unambiguous",
   // 执行顺序由右往左，所以先处理ts再处理jsx，最后再转换为低版本浏览器支持的语法
@@ -24,5 +26,6 @@ module.exports = {
     [
       "@babel/plugin-transform-runtime",
     ],
-  ]
+    isDEV && require.resolve('react-refresh/babel'), // 如果是开发模式，就启动react热更新插件
+  ].filter(Boolean) // 过滤空值
 }

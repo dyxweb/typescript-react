@@ -2,6 +2,7 @@ const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const commonConfig = require('./webpack.common.js');
 
 module.exports = merge(commonConfig, {
@@ -42,5 +43,11 @@ module.exports = merge(commonConfig, {
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].[contenthash:8].css' // 抽离css的输出目录和名称
     }),
+    new CompressionPlugin({
+      test: /.(js|css)$/, // 只生成css,js压缩文件
+      algorithm: 'gzip', // 压缩格式，默认是gzip
+      threshold: 10240, // 只有大小大于该值的资源会被处理。默认值是10k
+      minRatio: 0.8 // 压缩率，默认值是0.8
+    })
   ]
 })

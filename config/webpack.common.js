@@ -10,4 +10,8 @@ module.exports = {
     filename: 'static/js/[name].[contenthash:8].js', // 打包文件名
     clean: true, // 每一次打包清除上一次打包内容，webpack4需要配置clean-webpack-plugin
   },
+  resolve: {
+    // 默认是.js和.json。以下配置解决ts文件无法被引用解析的问题
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+  },
 }

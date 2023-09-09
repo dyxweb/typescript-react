@@ -34,7 +34,15 @@ module.exports = {
         test: /.(scss|sass)$/,
         use: [
           'style-loader',
-          'css-loader',
+          {
+            loader: require.resolve('css-loader'),
+            // 开启css module
+            options: {
+              modules: {
+                localIdentName: '[folder]_[local]_[hash:base64:5]',
+              },
+            },
+          },
           'postcss-loader',
           'sass-loader'
         ]

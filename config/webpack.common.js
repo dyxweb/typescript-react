@@ -1,6 +1,6 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 
 module.exports = {
   // 入口文件
@@ -33,5 +33,9 @@ module.exports = {
       // html模板
       template: path.resolve(__dirname, '../public/index.html'),
     }),
+    new webpack.DefinePlugin({
+      // webpack通过命令将自定义的process.env.BASE_ENV环境变量注入到业务代码
+      'process.env.BASE_ENV': JSON.stringify(process.env.BASE_ENV)
+    })
   ]
 }

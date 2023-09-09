@@ -25,7 +25,11 @@ module.exports = {
           /\bcore-js\b/,
           /\bwebpack\/buildin\b/
         ],
-      }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
     ]
   },
   plugins: [
